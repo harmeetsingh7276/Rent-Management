@@ -1,17 +1,37 @@
 package org.rentmanagement.model;
 
-public class Tenant {
-	private long mobileNumber;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tenants")
+public class Tenants {
+	@Id
+	@Column(name = "mobileNumber")
+	private String mobileNumber;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "id_proof")
 	private String idProof;
+
+	@Column(name = "deposit")
 	private long deposit;
+
+	@Column(name = "rent")
 	private long rent;
+
+	@Column(name = "date_of_deposit_given")
 	private String dateOfDepositGiven;
+
+	@Column(name = "date_of_living")
 	private String dateOfLiving;
 
-	public Tenant(long mobileNumber, String name, String idProof, long deposit, long rent, String dateOfDepositGiven,
+	public Tenants(String mobileNumber, String name, String idProof, long deposit, long rent, String dateOfDepositGiven,
 			String dateOfLiving) {
-		super();
 		this.mobileNumber = mobileNumber;
 		this.name = name;
 		this.idProof = idProof;
@@ -21,11 +41,11 @@ public class Tenant {
 		this.dateOfLiving = dateOfLiving;
 	}
 
-	public long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
@@ -76,4 +96,5 @@ public class Tenant {
 	public void setDateOfLiving(String dateOfLiving) {
 		this.dateOfLiving = dateOfLiving;
 	}
+
 }
