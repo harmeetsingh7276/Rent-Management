@@ -15,10 +15,13 @@ public class App {
 
 		try {
 			//Tenants tenant= new Tenants("7276720124", "Harmeet", "www.google.com", 8000, 4000, "01/07/2022", "01/07/2022");
-			Tenants tenant= new Tenants("8087626802", "Payal", "www.google.com", 8000, 4000, "01/07/2022", "01/07/2022");
+			//Tenants tenant= new Tenants("8087626802", "Payal", "www.google.com", 8000, 4000, "01/07/2022", "01/07/2022");
+			Tenants tenant=new Tenants();
 			session.beginTransaction();
-			session.save(tenant);
+			//session.save(tenant);
+			tenant=session.get(Tenants.class,"7276720124");
 			session.getTransaction().commit();
+			System.out.println(tenant);
 		} finally {
 			session.close();
 			factory.close();

@@ -30,6 +30,10 @@ public class Tenants {
 	@Column(name = "date_of_living")
 	private String dateOfLiving;
 
+	public Tenants() {
+		
+	}
+
 	public Tenants(String mobileNumber, String name, String idProof, long deposit, long rent, String dateOfDepositGiven,
 			String dateOfLiving) {
 		this.mobileNumber = mobileNumber;
@@ -95,6 +99,13 @@ public class Tenants {
 
 	public void setDateOfLiving(String dateOfLiving) {
 		this.dateOfLiving = dateOfLiving;
+	}
+
+	@Override
+	public String toString() {
+		return "Tenants [mobileNumber=" + mobileNumber + ", name=" + name + ", idProof=" + idProof + ", deposit="
+				+ deposit + ", rent=" + rent + ", dateOfDepositGiven=" + dateOfDepositGiven + ", dateOfLiving="
+				+ dateOfLiving + "]";
 	}
 
 }
