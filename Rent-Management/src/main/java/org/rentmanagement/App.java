@@ -20,6 +20,7 @@ public class App {
 			session.beginTransaction();
 			//session.save(tenant);
 			tenant=session.get(Tenants.class,"7276720124");
+			tenant.setIdProof("www.yahoo.com");//updating
 			session.getTransaction().commit();
 			System.out.println(tenant);
 		} finally {
