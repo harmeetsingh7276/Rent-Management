@@ -20,9 +20,12 @@ public class App {
 			session.beginTransaction();
 			//session.save(tenant);
 			tenant=session.get(Tenants.class,"7276720124");
-			tenant.setIdProof("www.yahoo.com");//updating
+//			tenant.setIdProof("www.yahoo.com");//updating db
+			
+			//deleting a record with tenant mobile 7276720124
+			session.delete(tenant);
 			session.getTransaction().commit();
-			System.out.println(tenant);
+			//System.out.println(tenant);
 		} finally {
 			session.close();
 			factory.close();
