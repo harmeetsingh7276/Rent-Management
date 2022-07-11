@@ -1,5 +1,7 @@
 package org.rentmanagement;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -14,18 +16,16 @@ public class App {
 		Session session = factory.getCurrentSession();
 
 		try {
-			//Tenants tenant= new Tenants("7276720124", "Harmeet", "www.google.com", 8000, 4000, "01/07/2022", "01/07/2022");
-			//Tenants tenant= new Tenants("8087626802", "Payal", "www.google.com", 8000, 4000, "01/07/2022", "01/07/2022");
-			Tenants tenant=new Tenants();
-			session.beginTransaction();
-			//session.save(tenant);
-			tenant=session.get(Tenants.class,"7276720124");
-//			tenant.setIdProof("www.yahoo.com");//updating db
 			
-			//deleting a record with tenant mobile 7276720124
-			session.delete(tenant);
-			session.getTransaction().commit();
-			//System.out.println(tenant);
+			session.beginTransaction();
+			
+			List<Tenants> tenants=session.createQuery("from tenants").getResultList();
+			
+			for(Tenants t:tenants) {
+				System.out.println(t);
+			}
+			//session.getTransaction().commit();
+			
 		} finally {
 			session.close();
 			factory.close();
