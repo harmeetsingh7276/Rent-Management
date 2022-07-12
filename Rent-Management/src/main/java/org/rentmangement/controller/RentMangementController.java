@@ -45,25 +45,24 @@ public class RentMangementController extends HttpServlet {
 
 	public void updateInformation(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String mob=request.getParameter("mobileNumber");
-		Tenants t=new DAO().getTenantsFromMobileNumber(mob);
-		//Tenants t = new Tenants(mob,name,idProof,deposit,rent,dOD,dOL);
-		if(request.getParameter("name")!=null && !request.getParameter("name").isEmpty()) {
+		String mob = request.getParameter("mobileNumber");
+		Tenants t = new DAO().getTenantsFromMobileNumber(mob);
+		if (request.getParameter("name") != null && !request.getParameter("name").isEmpty()) {
 			t.setName(request.getParameter("name"));
 		}
-		if(request.getParameter("idProof")!=null && !request.getParameter("idProof").isEmpty() ) {
+		if (request.getParameter("idProof") != null && !request.getParameter("idProof").isEmpty()) {
 			t.setIdProof(request.getParameter("idProof"));
 		}
-		if(request.getParameter("deposit")!=null && !request.getParameter("deposit").isEmpty()) {
+		if (request.getParameter("deposit") != null && !request.getParameter("deposit").isEmpty()) {
 			t.setDeposit(request.getParameter("deposit"));
 		}
-		if(request.getParameter("rent")!=null && !request.getParameter("rent").isEmpty()) {
+		if (request.getParameter("rent") != null && !request.getParameter("rent").isEmpty()) {
 			t.setRent(request.getParameter("rent"));
 		}
-		if(request.getParameter("dateOfDeposit")!=null && !request.getParameter("dateOfDeposit").isEmpty()) {
+		if (request.getParameter("dateOfDeposit") != null && !request.getParameter("dateOfDeposit").isEmpty()) {
 			t.setDateOfDepositGiven(request.getParameter("dateOfDeposit"));
 		}
-		if(request.getParameter("dateOfLiving")!=null && !request.getParameter("dateOfLiving").isEmpty()) {
+		if (request.getParameter("dateOfLiving") != null && !request.getParameter("dateOfLiving").isEmpty()) {
 			t.setDateOfLiving(request.getParameter("dateOfLiving"));
 		}
 		new DAO().updateInformation(t);
@@ -80,9 +79,8 @@ public class RentMangementController extends HttpServlet {
 	public void addTenant(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Tenants t = new Tenants(request.getParameter("mobileNumber"), request.getParameter("name"),
-				request.getParameter("idProof"), request.getParameter("deposit"),
-				request.getParameter("rent"), request.getParameter("dateOfDeposit"),
-				request.getParameter("dateOfLiving"));
+				request.getParameter("idProof"), request.getParameter("deposit"), request.getParameter("rent"),
+				request.getParameter("dateOfDeposit"), request.getParameter("dateOfLiving"));
 		// System.out.println(t);
 		new DAO().addTenantsDetails(t);
 		listTenants(request, response);
