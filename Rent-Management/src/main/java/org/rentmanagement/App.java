@@ -10,7 +10,7 @@ import org.rentmanagement.model.Tenants;
 public class App {
 
 	public static void main(String[] args) {
-		//Remember place the hibernate config file in src/java
+		//Remember place the hibernate config file in src/java  basically keep where App.java is
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Tenants.class)
 				.buildSessionFactory();
 		Session session = factory.getCurrentSession();
