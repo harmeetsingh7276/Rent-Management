@@ -26,7 +26,7 @@ public class RentMangementController extends HttpServlet {
 			updateInformation(request, response);
 			break;
 		default:
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 	}
 
@@ -37,9 +37,11 @@ public class RentMangementController extends HttpServlet {
 		case "listTenants":
 			listTenants(request, response);
 			break;
-
+		case "deleteTenant":
+			deleteTenant(request, response);
+			break;
 		default:
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 	}
 
@@ -83,6 +85,13 @@ public class RentMangementController extends HttpServlet {
 				request.getParameter("dateOfDeposit"), request.getParameter("dateOfLiving"));
 		// System.out.println(t);
 		new DAO().addTenantsDetails(t);
+		listTenants(request, response);
+	}
+
+	private void deleteTenant(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String mob=request.getParameter("mobileNumber");
+		new DAO().deleteTenant(mob);
+		System.out.println("Deleted");
 		listTenants(request, response);
 	}
 }

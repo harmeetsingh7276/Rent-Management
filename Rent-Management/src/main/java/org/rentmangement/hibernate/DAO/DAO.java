@@ -46,4 +46,14 @@ public final class DAO {
 		session.beginTransaction();
 		return session.get(Tenants.class,mob);
 	}
+
+	public void deleteTenant(String mob) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		Tenants t=session.get(Tenants.class, mob);
+		session.delete(t);
+		session.getTransaction().commit();
+		System.out.println("Deleted Details for " + t.getName());
+		
+	}
 }
