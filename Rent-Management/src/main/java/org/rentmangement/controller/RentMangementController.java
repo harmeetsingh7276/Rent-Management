@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.rentmanagement.model.Tenants;
-import org.rentmangement.hibernate.HibernateConfiguration;
+import org.rentmangement.hibernate.DAO.DAO;
 
 @WebServlet("/RentMangementController")
 public class RentMangementController extends HttpServlet {
@@ -25,15 +23,7 @@ public class RentMangementController extends HttpServlet {
 				Integer.parseInt(request.getParameter("rent")), request.getParameter("dateOfDeposit"),
 				request.getParameter("dateOfLiving"));
 		//System.out.println(t);
-		
-		Session session = HibernateConfiguration.getSession();
-		try {
-			session.beginTransaction();
-			session.save(t);
-			session.getTransaction().commit();
-		}finally {
-			HibernateConfiguration.closeSession();
-		}
+		new DAO().addTenantsDetails(t);
 	}
 
 }
