@@ -19,10 +19,10 @@ public class Tenants {
 	private String idProof;
 
 	@Column(name = "deposit")
-	private long deposit;
+	private String deposit;
 
 	@Column(name = "rent")
-	private long rent;
+	private String rent;
 
 	@Column(name = "date_of_deposit_given")
 	private String dateOfDepositGiven;
@@ -34,7 +34,7 @@ public class Tenants {
 		
 	}
 
-	public Tenants(String mobileNumber, String name, String idProof, long deposit, long rent, String dateOfDepositGiven,
+	public Tenants(String mobileNumber, String name, String idProof, String deposit, String rent, String dateOfDepositGiven,
 			String dateOfLiving) {
 		this.mobileNumber = mobileNumber;
 		this.name = name;
@@ -69,19 +69,19 @@ public class Tenants {
 		this.idProof = idProof;
 	}
 
-	public long getDeposit() {
+	public String getDeposit() {
 		return deposit;
 	}
 
-	public void setDeposit(long deposit) {
+	public void setDeposit(String deposit) {
 		this.deposit = deposit;
 	}
 
-	public long getRent() {
+	public String getRent() {
 		return rent;
 	}
 
-	public void setRent(long rent) {
+	public void setRent(String rent) {
 		this.rent = rent;
 	}
 

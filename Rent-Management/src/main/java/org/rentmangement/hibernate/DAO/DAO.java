@@ -31,4 +31,29 @@ public final class DAO {
 		//session.getTransaction().commit(); not required while reading
 		return lst;
 	}
+
+	public void updateInformation(Tenants tenant) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		session.update(tenant);
+		session.getTransaction().commit();
+		System.out.println("Updated Details for " + tenant.getName());
+		
+	}
+
+	public Tenants getTenantsFromMobileNumber(String mob) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		return session.get(Tenants.class,mob);
+	}
+
+	public void deleteTenant(String mob) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		Tenants t=session.get(Tenants.class, mob);
+		session.delete(t);
+		session.getTransaction().commit();
+		System.out.println("Deleted Details for " + t.getName());
+		
+	}
 }
