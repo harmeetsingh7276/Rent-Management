@@ -9,7 +9,8 @@
 <body>
 <h1>Rent Management</h1>
 <h2>Add Tenant Details</h2>
-<form action="RentMangementController" method="post">
+<a href="${pageContext.request.contextPath}/RentMangementController?action=listTenants">View Tenant Details</a>
+<form action="RentMangementController?action=addTenant" method="post">
 	Enter Mobile Number:<input type="text" id="mobileNumber" name="mobileNumber"/>
 	<p/>
 	Enter Name:<input type="text" id="name" name="name"/>
