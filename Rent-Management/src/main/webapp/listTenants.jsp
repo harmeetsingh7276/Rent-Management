@@ -12,6 +12,8 @@
 <%String mobileNumber="";%>
 	<h1>Rent Management</h1>
 	<h2>List of Tenant Details</h2>
+	<a href="${pageContext.request.contextPath}/">Add User</a> |
+	<a href="${pageContext.request.contextPath}/RentMangementController?action=listTenants">View Tenant Details</a>
 	<table border="1">
 	<tr>
 		<th>Mobile Number</th>
