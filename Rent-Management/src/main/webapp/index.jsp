@@ -15,7 +15,7 @@
 	<p/>
 	Enter Name:<input type="text" id="name" name="name"/>
 	<p/>
-	Enter URL:<input type="text" id="idProof" name="idProof"/>
+	Document URL:<input type="text" id="idProof" name="idProof"/>
 	<p/>
 	Enter Deposit:<input type="text" id="deposit" name="deposit"/>
 	<p/>
