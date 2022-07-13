@@ -47,7 +47,7 @@
 					"<input type='submit' value='Update'/><p/>"+
 							"</form>";
 			out.print("<td>"+updateForm+"</td>");
-			out.print("<td>"+"<form action='RentMangementController' method='post'><a href='"+request.getContextPath()+"/RentMangementController?action=deleteTenant&mobileNumber="+mobileNumber+"'>Delete</a></form>"+"<td>");
+			out.print("<td>"+"<form action='RentMangementController' method='post'><a href='"+request.getContextPath()+"/RentMangementController?action=deleteTenant&mobileNumber="+mobileNumber+"' onclick='if(!confirm(`Are you sure to delte the tenant?`)) return false'>Delete</a></form>"+"<td>");
 		out.print("</tr>");
 	}
 	%> 
